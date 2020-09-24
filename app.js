@@ -1,5 +1,6 @@
 var express = require('express');
 const merge = require('easy-pdf-merge');
+var cors = require('cors');
 var download = require('download-pdf')
 const fs = require("fs");
 const https = require('https');
@@ -11,7 +12,7 @@ var bodyParser = require('body-parser');
 const directoryPath = 'Resources';
 var server_port = process.env.YOUR_PORT || process.env.PORT || 80;
 app.use(bodyParser.json());
-
+app.use(cors());
 
 app.get('/', function (req, res) {
 res.send('API is working.. Please use /mergepdf endpoint..');
